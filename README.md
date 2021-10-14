@@ -2,6 +2,8 @@
 
 ### List of Projects to do
 
+#### Pomodoro
+
 ### Finished Projects
 
 #### Password Generator
