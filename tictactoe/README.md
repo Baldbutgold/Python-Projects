@@ -5,7 +5,8 @@ Basic Tic Tac Toe played in terminal, you can choose to play against a basic bot
 The basic bot just picks a random number for the possible plays
 
 ## Future TO DO
-- make the last check in if no possible moves means draw
+- It does be called twice idgaf tbh
+- Refactor code
 - make a web app
 - make this in javascript
 

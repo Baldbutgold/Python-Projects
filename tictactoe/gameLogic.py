@@ -2,7 +2,6 @@ import random
 
 playablePositions = [0,2,4,6,8,10,12,14,16]
 gameMap = ['_','|','_','|','_','\n','_','|','_','|','_','\n',' ','|',' ','|',' ','\n']
-
 def printMap():
     print(''.join(gameMap))
 
@@ -29,18 +28,19 @@ def isAlive():
         if x == "ooo":
             print('Second player WON!')
             return False
-    all_playablePositions = ''
-    for i in playablePositions:   
-        pass
-        #check if all playablepositions are an empty string
-    else: 
-        return True
-
+    positions = ''
+    for i in playablePositions:
+        positions += str(i)
+        if len(positions) == 9:
+            if positions == 'n' * 9:
+                print('Draw')
+                return False
+    return True
 def gameRender(pos, sym):
     while isAlive() == True:
         gameMap[pos] = sym
         deletepos = int(pos)/2
-        playablePositions[int(deletepos)] = ''
+        playablePositions[int(deletepos)] = 'n'
         printMap()
         break
 
@@ -64,8 +64,10 @@ def checker(Player):
                 pass
         except:
             print('Invalid Input')
+
 def playerTurn():
     player = input('Press 1 to play against a friend, Press 2 to play against a basic bot\n')
+
     while isAlive() == True:
         if player == '1':
             #start playing against a friend
@@ -82,10 +84,12 @@ def playerTurn():
 def basicBot(): 
     randomposition = random.choice(playablePositions)
     symbol = 'o'
-    while randomposition == '':
+    while randomposition == 'n':
         randomposition = random.choice(playablePositions)
     else:
         gameRender(randomposition , symbol)
         print("Bot's turn he played", (int(randomposition/2 + 1)))
             
 startGame()
+
+
